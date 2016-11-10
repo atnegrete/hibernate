@@ -1,5 +1,8 @@
 package p2b;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -25,8 +28,13 @@ public class MainApp {
 		}
 		
 		Session session = sessionFactory.openSession();
+		session.getTransaction();
 		
 		//TODO: Run all queries. And create mysql tables.
+		
+		String hql = "**MYSQL STATEMENT**";
+		Query query = session.createQuery(hql);
+		List<Student> list = query.list();
 	}
 
 }
