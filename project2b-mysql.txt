@@ -1,0 +1,23 @@
+create table Person(
+	ID char(50),
+	Name char(50),
+	Address char(200),
+	DOB Date,
+	primary key(ID)
+);
+
+create table Faculty(
+	FacultyID char(50) references Person(ID),
+	Rank char(50),
+	Salary INT,
+	primary key(FacultyID)
+);
+
+create table Student(
+	StudentID char(50) references Person(ID),
+	Classification char(50),
+	GPA DOUBLE,
+	MentorID char(50) references Faculty(FacultyID),
+	CreditHours INT,
+	primary key(StudentID)
+);
