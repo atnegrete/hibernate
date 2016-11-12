@@ -21,3 +21,24 @@ create table Student(
 	CreditHours INT,
 	primary key(StudentID)
 );
+
+load xml local infile 'C:/Users/anegrete/Desktop/School/COMS 363/Project2B/Person.xml'
+
+into table Person
+
+rows identified by '<Person>';
+
+
+
+load xml local infile 'C:/Users/anegrete/Desktop/School/COMS 363/Project2B/Student.xml'
+
+into table Student 
+rows identified by '<Student>';
+
+
+
+load xml local infile 'C:/Users/anegrete/Desktop/School/COMS 363/Project2B/Faculty.xml'
+
+into table Faculty
+
+rows identified by '<Faculty>';
