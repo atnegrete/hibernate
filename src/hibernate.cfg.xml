@@ -35,11 +35,10 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Names the annotated entity class -->
-        <mapping class="Person"/>
-        <mapping class="Employee"/>
-        <mapping class="Department"/>
-        <mapping class="Manager"/>
-        
+        <mapping class="p2b.Person"/>
+        <mapping class="p2b.Student"/>
+        <mapping class="p2b.Faculty"/>
+       
     </session-factory>
 
 </hibernate-configuration>

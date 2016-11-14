@@ -10,9 +10,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Person")
+@Table(name = "person")
 @Inheritance(strategy = InheritanceType.JOINED) 
-
 public class Person {
 
 	@Id
@@ -31,9 +30,10 @@ public class Person {
 	 */
 	public Person(){}
 	
-	public Person(String pid, String pname, Date pdob){
+	public Person(String pid, String pname, String paddress, Date pdob){
 		this.PersonID = pid;
 		this.Name = pname;
+		this.Address = paddress;
 		this.Dob = pdob;
 	}
 	

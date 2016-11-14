@@ -1,6 +1,9 @@
 package p2b;
 
 import java.util.List;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -15,7 +18,7 @@ public class MainApp {
 	public static void main(String[] args) throws Exception{
 		SessionFactory sessionFactory = null;
 		
-		final  StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+		final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
 		try
 		{
 			Configuration configuration = new Configuration();
@@ -26,15 +29,19 @@ public class MainApp {
 			e.printStackTrace();
 			StandardServiceRegistryBuilder.destroy(registry);
 		}
-		
-		Session session = sessionFactory.openSession();
-		session.getTransaction();
+		 Session session = sessionFactory.openSession();
+		 session.getTransaction();
 		
 		//TODO: Run all queries. And create mysql tables.
 		
-		String hql = "**MYSQL STATEMENT**";
+		
+		// Item 1
+		String hql = "from person";
 		Query query = session.createQuery(hql);
-		List<Student> list = query.list();
+		List<Person> list = query.list();
+		for(Person p : list){
+			System.out.println("Name: " + p.getName() + " - " + "Address: " + p.getAddress());
+		}
 	}
 
 }

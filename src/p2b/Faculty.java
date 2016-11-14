@@ -2,16 +2,18 @@ package p2b;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Faculty")
+@Table(name = "faculty")
 @PrimaryKeyJoinColumn(name = "ID")
-public class Faculty {
+public class Faculty extends Person{
 
 	@Column(name = "Rank")
 	private String rank;
+	
 	@Column(name = "Salary")
 	private int salary;
 	
