@@ -1,14 +1,17 @@
 package p2b;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "faculty")
-@PrimaryKeyJoinColumn(name = "ID")
+@PrimaryKeyJoinColumn(name = "FacultyID")
 public class Faculty extends Person{
 
 	@Column(name = "Rank")
@@ -17,6 +20,9 @@ public class Faculty extends Person{
 	@Column(name = "Salary")
 	private int salary;
 	
+	@OneToMany(mappedBy="mentor", cascade = CascadeType.ALL)
+	private Set<Student> mentored_students;
+
 	public Faculty(){}
 	
 	public Faculty(String prank, int psalary){
@@ -40,5 +46,12 @@ public class Faculty extends Person{
 		this.salary = salary;
 	}
 	
+	public Set<Student> getMentored_students() {
+		return mentored_students;
+	}
+
+	public void setMentored_students(Set<Student> mentored_students) {
+		this.mentored_students = mentored_students;
+	}
 	
 }

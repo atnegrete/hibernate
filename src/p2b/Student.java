@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "student")
-@PrimaryKeyJoinColumn(name = "ID")
+@PrimaryKeyJoinColumn(name = "StudentID")
 public class Student extends Person{
 	
 	@Column(name = "Classification")
@@ -20,26 +20,26 @@ public class Student extends Person{
 	@Column(name = "GPA")
 	private Double gpa;
 	
-	@Column(name = "MentorID")
-	private String mentor;
+	@ManyToOne
+	@JoinColumn(name = "MentorID")
+	private Faculty mentor;
 	
 	@Column(name = "CreditHours")
 	private int creditHours;
 	
 	public Student(){}
 	
-	public Student(String pclassification, Double pgpa, String mentor, int pcredithours){
+	public Student(String pclassification, Double pgpa, int pcredithours){
 		this.classification = pclassification;
 		this.gpa = pgpa;
-		this.mentor = mentor;
 		this.creditHours = pcredithours;
 	}
 
-	public String getMentor() {
+	public Faculty getMentor() {
 		return mentor;
 	}
 
-	public void setMentor(String mentor) {
+	public void setMentor(Faculty mentor) {
 		this.mentor = mentor;
 	}
 
