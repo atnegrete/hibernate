@@ -6,4 +6,6 @@
 
 3. Modify the hibernate.cfg.xml file with your db, schema, username and password.
 
-4. run MainApp
+4. Make sure the included HibernateJar and ConnectorJ jar files are in the build path for libraries.
+
+5. run MainApp
